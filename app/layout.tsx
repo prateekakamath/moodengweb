@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Fredoka } from "next/font/google"
+import { Analytics } from "@vercel/analytics/react"
 import "./globals.css" // Import globals.css at the top of the file
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -36,7 +37,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${fredoka.className} font-sans antialiased`}>{children}</body>
+      <body className={`${fredoka.className} font-sans antialiased`}>
+        {children}
+        <Analytics />
+      </body>
     </html>
   )
 }
